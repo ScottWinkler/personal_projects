@@ -1,0 +1,10 @@
+.Menu{
+    color:#00d8ff;
+    display:table-cell;
+    text-align: left;
+    vertical-align: middle;
+    width:30px;
+}
+.Menu-Item{
+    font-size:large;
+}

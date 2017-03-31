@@ -1,0 +1,9 @@
+
+.ProfileItem{
+    padding:5px 0px 5px 0px;
+    min-width:300px;
+    max-width:500px;
+    list-style-type: none;
+    margin:auto;
+}
+

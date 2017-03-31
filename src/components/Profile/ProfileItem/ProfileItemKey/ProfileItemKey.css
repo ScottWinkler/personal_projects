@@ -1,0 +1,8 @@
+.ProfileItemKey{
+    padding-left:20px;
+    width:25%;
+    display:inline-block;
+}
+.ProfileItemKey-Text{
+    text-align: left;
+}

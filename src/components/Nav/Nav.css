@@ -1,0 +1,17 @@
+.Nav{
+    background: #333;
+    margin-bottom:20px;
+    padding:0px;
+}
+
+.Nav-ul{
+    border:none;
+    padding:10px;
+    margin:0px;
+    display: table;
+    width:100%;
+    list-style-type: none;
+   
+}
+
+

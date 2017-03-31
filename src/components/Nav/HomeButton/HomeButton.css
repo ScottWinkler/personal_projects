@@ -1,0 +1,8 @@
+.HomeButton{
+    display:table-cell;
+    color:white;
+    font-size:2em;
+    vertical-align: middle;
+    padding-right:0px;
+    width:40px;
+}

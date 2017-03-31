@@ -1,0 +1,26 @@
+.UploadModal-Close{
+    text-align: right;
+}
+.UploadModal-Okay{
+    text-align: right;
+    display: table-cell;
+    vertical-align: middle;
+}
+.UploadModal-Upload{
+    text-align: left;
+    display: table-cell;
+    margin-left: 0px;
+    vertical-align: top;
+}
+.UploadModal-Footer{
+    width:100%;
+    display:table;
+
+}
+.UploadModal-Glyph-Ok{
+    padding-left:7px;
+}
+#preview_image{
+    max-width:300px;
+    max-height:300px;
+}

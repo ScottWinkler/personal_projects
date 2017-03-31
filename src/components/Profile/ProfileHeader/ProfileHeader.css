@@ -1,0 +1,11 @@
+   .ProfileHeader{
+    margin: auto;
+    max-width:500px;
+    text-align: center;
+    padding-left:10px;
+    color: #00d8ff;
+    
+   }
+   .ProfileHeader-H4{
+       color:#333;
+   }

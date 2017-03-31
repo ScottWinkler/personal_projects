@@ -1,0 +1,10 @@
+.ProfileItemValue{
+    color:#999;
+    padding-left:20px;
+    display:inline-block;
+    width:65%;
+}
+.ProfileItemValue-Text{
+    text-align: left;
+     word-wrap: break-word;
+}

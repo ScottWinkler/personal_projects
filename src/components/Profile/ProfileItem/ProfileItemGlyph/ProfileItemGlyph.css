@@ -1,0 +1,16 @@
+.ProfileItemGlyph{
+    margin:0px;
+    font-size:1.5em;
+    display:inline-block;
+    width:10%;
+    line-height: 0px;
+    transform: translateY(13%);
+}
+.ProfileItemGlyph-Glyph{
+    text-align: left;
+}
+.ProfileItemGlyph-Button{
+   padding:10px 10px 10px 10px;
+    background-color: transparent;
+    border:none;
+}

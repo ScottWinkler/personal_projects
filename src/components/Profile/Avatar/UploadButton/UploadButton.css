@@ -1,0 +1,10 @@
+.UploadButton-Btn{
+    border-radius: 50px;
+    padding-left: 9px;
+    padding-right:9px;
+}
+.UploadButton{
+    margin:auto;
+    width:300px;
+    text-align: right;
+}
