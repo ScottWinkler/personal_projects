@@ -2,7 +2,7 @@
 
 $to = $_POST['email'];
 $subject = "Welcome to Kitty Fanclub!";
-$message = "Hello fellow kitty lover and welcome to the kitty fanclub website! I look forward to seeing your cat pictures and blog posts!";
+$message = "Hello,\r\n\r\nThank you for joining the kitty fanclub website. If you have any questions or inquires, please respond to this email.\r\nThanks again, and welcome!\r\n\r\n\tScott";
 $headers = 'From: <admin@kittyfanclub.com>';
 mail($to,$subject,$message,$headers);
 

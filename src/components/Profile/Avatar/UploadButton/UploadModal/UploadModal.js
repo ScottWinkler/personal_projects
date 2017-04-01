@@ -20,7 +20,7 @@ export default class UploadModal extends Component {
         this.handleImageUpload=this.handleImageUpload.bind(this);
         this.state = {
             uploadedFile: null,
-            uploadedFileCloudinaryUrl: ''
+            publicID: this.props.src ? this.props.src : null
         };
     }
      onChange(e) {
@@ -36,16 +36,20 @@ export default class UploadModal extends Component {
         }
     }
 
-    handleImageUpload() {
-        if(this.state.uploadedFile){
-            cloudinary.uploader.upload(this.state.uploadedFile, function (result) {
-                console.log(result)
+     handleImageUpload() {
+         if (this.state.uploadedFile) {
+             var self = this;
+             cloudinary.uploader.upload(this.state.uploadedFile, function (result) {
+                 console.log(result);
+                 if (self.props.src !== 'DEFAULT_CAT_PIC') {
+                     cloudinary.uploader.destroy(self.props.src, function (result) { console.log(result) }, { invalidate: true });
+                 }
+                 self.props.update({ src: result.public_id });
+             })
+         }
+         this.props.close();
+     }
 
-            });}
-            if(this.props.src!=='cat_profile-512_dceqtz')
-            cloudinary.uploader.destroy(this.props.src,function(result){ console.log(result) },{ invalidate: true });;
-            this.props.close();
-        }
 
     render() {
 
@@ -57,15 +61,14 @@ export default class UploadModal extends Component {
                 </Modal.Header>
 
                 <Modal.Body>
-                  <img id="preview_image" src={this.state.uploadedFile} />
+                  <img id="preview_image" src={this.state.uploadedFile} alt=""/>
                 </Modal.Body>
                 <Modal.Footer className="UploadModal-Footer">
-                    <span  className="UploadModal-Upload">
-                     <input id="files" type="file" onChange={this.onChange} />
-                    </span>
-                    <span  className="UploadModal-Okay">
-                     <Button bsStyle="success" onClick={()=>this.handleImageUpload()}>Okay<Glyphicon glyph="ok" className="UploadModal-Glyph-Ok"/></Button>
-                    </span>
+                    <span className="UploadModal-Upload">
+                        Upload Image
+                     <input id="files" type="file" onChange={this.onChange} className="UploadModal-Hide"/>
+                     </span>
+                     <Button bsStyle="success" className="UploadModal-Okay"onClick={()=>this.handleImageUpload()}>Okay<Glyphicon glyph="ok" className="UploadModal-Glyph-Ok"/></Button>
                 </Modal.Footer>
                 </Modal>
             </div>

@@ -1,4 +1,4 @@
-     import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import React, {Component} from 'react';
 import {Modal,Button,Glyphicon} from 'react-bootstrap';
@@ -10,13 +10,14 @@ import {Modal,Button,Glyphicon} from 'react-bootstrap';
         super(props);
         this.state={
             password:"",
-            email:"",
+            newPassword:"",
+            newPasswordConfirmation:"",
         };
         this.handleChange=this.handleChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
-        this.validEmail=this.validEmail.bind(this);
         this.validPassword=this.validPassword.bind(this);
         this.getErrorMessage=this.getErrorMessage.bind(this);
+        this.close=this.close.bind(this);
     }
     handleChange(e){
         var state = e.target.id;
@@ -27,42 +28,40 @@ import {Modal,Button,Glyphicon} from 'react-bootstrap';
     }
 
     handleSubmit(e){
-        if(!this.validEmail()){
-            this.props.sendError("INVALID_EMAIL");
+        if(!this.passwordsMatch()){
+            this.props.sendError("PASSWORDS_NOT_MATCHING");
             return;
         }
         if(!this.validPassword()){
+            this.props.sendError("INVALID_PASSWORD");
             return
         }
-        var state={
-            email:this.state.email,
-            password:this.state.password,
-            username:this.props.username
-        };
         var self=this;
         var callback = () => {
-            if(!self.props.error){
-            self.close();}};
+              if(!self.props.error){
+            self.close();}}
+        var state ={
+            password: this.state.password,
+            newPassword: this.state.newPassword,
+            newPasswordConfirmation: this.state.newPasswordConfirmation,
+            username: this.props.username
+        }
         this.props.update(state,callback);
     }
-close(){
-    this.setState({
+    close(){
+         this.setState({
                 password: "",
-                email: ""
+                newPassword:"",
+                newPasswordConfirmation: ""
             })
             this.props.sendError(null);
             this.props.close();
-}
-     validEmail(){
-        var pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return pattern.test(this.state.email)&&this.state.email.length>0;
     }
-
     validPassword(){
-        if (!this.props.error&&this.props.error==="PASSWORD_INCORRECT") {
-            return false;
-        }
-        return true;
+        return (this.state.newPassword.length>3)&&this.passwordsMatch();
+    }
+    passwordsMatch(){
+        return (this.state.newPassword===this.state.newPasswordConfirmation);
     }
     getErrorMessage() {
         if (!this.props.error) {
@@ -76,11 +75,11 @@ close(){
             case "DATABASE_ERROR":
                 message = "There was a problem connecting to the server. Please try again later.";
                 break;
-            case "INVALID_EMAIL":
-                message = "Sorry, your email is not valid. Please enter a valid email address e.g. name@example.com.";
+            case "PASSWORDS_NOT_MATCHING":
+                message = "Sorry, your new password and password confirmation do not match. Please double-check your password. Also, ensure your new password is at least 4 characters long.";
                 break;
-            case "EMAIL_EXISTS":
-                message = "The E-mail you entered already belongs to an account.";
+            case "INVALID_PASSWORD":
+                message = "Sorry, your new password must be at least 4 characters long. Please double-check your new password.";
                 break;
             default:
                 break;
@@ -92,31 +91,41 @@ close(){
         <div >
             <Modal show={this.props.show} onHide={()=>this.close()} >
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit Your E-mail Address</Modal.Title>
+                    <Modal.Title>Change Your Password</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
                     
         <form>
             <FieldGroup 
-                id="email"
-                type="email"
-                label="New E-mail Address"
-                placeholder="Email"
-                onChange={this.handleChange}
-                validationState={this.props.error&&(!this.validEmail()) ? 'error' : null }
-                value={this.state.email}
-            />
-
-            <FieldGroup 
                 id="password"
                 type="password"
-                label="Please Verify Your Password"
-                placeholder="Enter Password"
+                label="Old Password"
+                placeholder="Old Password"
+                onChange={this.handleChange}
+                validationState={this.props.error&&this.props.error==="INVALID_PASSWORD" ? 'error' : null }
+                value={this.state.password}
+                autoComplete="password"
+            />
+            <FieldGroup 
+                id="newPassword"
+                type="password"
+                label="New Password"
+                placeholder="New Password"
                 onChange={this.handleChange}
                 validationState={this.props.error&&(!this.validPassword()) ? 'error' : null }
-                value={this.state.password}
+                value={this.state.newPassword}
             />
+            <FieldGroup 
+                id="newPasswordConfirmation"
+                type="password"
+                label="Re-enter New Password"
+                placeholder="Confirm Password"
+                onChange={this.handleChange}
+                validationState={this.props.error&&(!this.validPassword()) ? 'error' : null }
+                value={this.state.newPasswordConfirmation}
+            />
+               
         </form>
         {this.props.error? <ErrorMsg message={this.getErrorMessage()}/> : null}
 

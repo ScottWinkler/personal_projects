@@ -5,25 +5,28 @@ export function updateIsValidating(bool){
         isValidating: bool
     }
 }
-export function updateData(input) {
+export function updateData(input,callback=()=>{}) {
     return (dispatch) => {
         dispatch(updateIsValidating(true));
         postURL("/php/update.php", input)
             .then(
             //success
-            function (response) {
-                console.log(response);
-                var response = JSON.parse(response);
+            function (res) {
+                console.log(res);
+                var response = JSON.parse(res);
                 dispatch(updateIsValidating(false));
                 switch(response){
                     case "PASSWORD_INCORRECT":
                         dispatch(updateError(response))
                         break;
+                    case "EMAIL_EXISTS":
+                        dispatch(updateError(response))
+                        break;
                     default:{
-                        
                         dispatch(updateError(null));
-                        dispatch(updateDataSuccess(response));
-                        dispatch(updateError(response));
+                        dispatch(updateDataSuccess(response))
+                        callback(); 
+                        
                 }
                 }
             },

@@ -13,8 +13,8 @@ this.state={showModal:false}
 
         return (
 
- <div className="UploadButton">
+                <div className="UploadButton">
                     <Button className="UploadButton-Btn"   onClick={()=>{this.setState({showModal:true})}}><Glyphicon glyph="pencil"/></Button>
-                    <UploadModal src={this.props.src}  show={this.state.showModal} upload={this.props.upload} close={()=>{this.setState({showModal:false})}}/>
+                    <UploadModal src={this.props.src}  show={this.state.showModal} update={this.props.update} close={()=>{this.setState({showModal:false})}}/>
                 </div>
         )}}

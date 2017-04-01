@@ -92,7 +92,7 @@ import {Link} from 'redux-little-router';
 
             <FieldGroup 
                 id="password"
-                type="text"
+                type="password"
                 label="Password"
                 placeholder="Enter Password"
                 onChange={this.handleChange}

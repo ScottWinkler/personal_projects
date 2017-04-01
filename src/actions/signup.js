@@ -12,9 +12,9 @@ export function signupFetchData(input) {
         postURL("/php/signup.php", input)
             .then(
             //success
-            function (response) {
-                console.log(response);
-                response = JSON.parse(response);
+            function (res) {
+                console.log(res);
+                var response = JSON.parse(res);
                 dispatch(signupIsValidating(false));
                 switch(response){
                     case "ACCOUNT_EXISTS":

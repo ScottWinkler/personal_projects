@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import React, {Component} from 'react';
-import {Grid} from 'react-bootstrap';
 import './Profile.css';
 import Avatar from './Avatar/Avatar.js';
 import ProfileItem from './ProfileItem/ProfileItem.js';
@@ -18,7 +17,7 @@ export default class Profile extends Component{
                     src={this.props.src}
                     update={this.props.update}/>
                     
-                    <ProfileHeader title={this.props.username}/>
+                    <ProfileHeader title={this.props.username} signupDate={this.props.signupDate}/>
                     <ProfileItem
                     title="Username"
                     glyph="user"

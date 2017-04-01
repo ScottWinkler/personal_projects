@@ -4,12 +4,11 @@ import React, {Component} from 'react';
 import './Welcome.css';
 import LoginButton from './LoginButton/LoginButton.js';
 import WelcomeMessage from './WelcomeMessage/WelcomeMessage.js';
-import {Link} from 'redux-little-router';
 export default class Welcome extends Component{
 
     render(){
 
-    const link = <Link href="/">Sign Out</Link>
+    const link = <a onClick={()=>{this.props.logout()}}>Sign Out</a>
         return(
                 <li className="Welcome">
                  {this.props.isAuthenticated ? <WelcomeMessage username={this.props.username}/>  : null }

@@ -1,7 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
 import {Fragment} from 'redux-little-router';
-import {getURL,postURL} from '../../utilities/xmlhttp.js';
 import Nav from '../../containers/Nav.js';
 import Login from '../../containers/Login.js';
 import Signup from '../../containers/Signup.js';
@@ -14,11 +13,11 @@ export default class App extends Component {
       <Fragment forRoute='/'>
       <div>
         <Nav />
-        <Fragment forRoute='/home'><Home /></Fragment>
+       
         <Fragment forRoute='/login'><Login /></Fragment>
         <Fragment forRoute='/signup'><Signup /></Fragment>
         <Fragment forRoute='/profile'><Profile /></Fragment>
-  
+       <Fragment forRoute='/'><Home /></Fragment>
         </div>
       </Fragment>
 

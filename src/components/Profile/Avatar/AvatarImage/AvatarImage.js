@@ -1,7 +1,7 @@
  import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import React, {Component} from 'react';
-import {Image,CloudinaryContext} from 'cloudinary-react';
+import {Image} from 'cloudinary-react';
 import './AvatarImage.css';
 
 export default class AvatarImage extends Component {

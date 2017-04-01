@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import {Glyphicon} from 'react-bootstrap';
 import './ProfileItemGlyph.css';
 import UpdateEmailModal from './UpdateEmailModal/UpdateEmailModal.js';
+import UpdatePasswordModal from './UpdatePasswordModal/UpdatePasswordModal.js';
 export default class ProfileItemGlyph extends Component{
 constructor(props){
 super(props);
@@ -23,7 +24,17 @@ this.state={showModal:false}}
                     username={this.props.username}
                     />
                     : null}
-
+                {this.props.type==="password" ?
+                    <UpdatePasswordModal
+                    show={this.state.showModal}
+                    update={this.props.update}
+                    close={()=>{this.setState({showModal:false})}}
+                    error={this.props.error}
+                    isValidating={this.props.isValidating}
+                    sendError={this.props.sendError}
+                    username={this.props.username}
+                    />
+                    : null}
 
                 </li>
 
