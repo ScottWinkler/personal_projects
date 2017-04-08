@@ -1,0 +1,14 @@
+.CommentFooter-Reply{
+    color:#333;
+}
+.CommentFooter{
+    margin-bottom:10px;
+}
+.CommentFooterGlyph{
+    font-size:1.5em;
+    padding:8px;
+    transform: translateY(10%) ;
+}
+.CommentFooterLiked{
+    color:limegreen;
+}

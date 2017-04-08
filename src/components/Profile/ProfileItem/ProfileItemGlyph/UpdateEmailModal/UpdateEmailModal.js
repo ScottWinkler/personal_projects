@@ -54,12 +54,15 @@ close(){
             this.props.close();
 }
      validEmail(){
+         if(this.props.error&&(this.props.error==="INVALID_EMAIL"||this.props.error==="EMAIL_EXISTS")){
+             return false;
+         }
         var pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return pattern.test(this.state.email)&&this.state.email.length>0;
     }
 
     validPassword(){
-        if (!this.props.error&&this.props.error==="PASSWORD_INCORRECT") {
+        if (this.props.error&&this.props.error==="PASSWORD_INCORRECT") {
             return false;
         }
         return true;

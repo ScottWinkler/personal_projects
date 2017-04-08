@@ -15,6 +15,12 @@ const routes = {
   '/profile': {
     title: 'Profile'
   },
+    '/gallery': {
+    title: 'Gallery'
+  },
+   '/blog': {
+    title: 'Blog'
+  },
   '/': {
     title: 'Home',
   }

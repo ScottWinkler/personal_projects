@@ -11,12 +11,15 @@ export default class Menu extends Component {
                 <Dropdown id="menu">
                     <CustomToggle bsRole="toggle"/>
                     <Dropdown.Menu>
-                        <MenuItem eventKey="1" className="Menu-Item" onClick={() => this.props.push('/profile')}>Account</MenuItem>
-                        <MenuItem eventKey="2" className="Menu-Item"onClick={() => this.props.push('/gallery/'+this.props.username)}>{this.props.username}'s Gallery</MenuItem>
-                        <MenuItem eventKey="3" className="Menu-Item">Friends</MenuItem>
-                        <MenuItem divider/>
-                       <MenuItem eventKey="4" className="Menu-Item">Find Blogs</MenuItem>
-                        <MenuItem eventKey="4" className="Menu-Item">Find Friends</MenuItem>
+                        {this.props.username ?<MenuItem eventKey="1" className="Menu-Item" onClick={() => this.props.push('/profile')}>{this.props.username}'s Account</MenuItem> : null}
+                        {this.props.username ?<MenuItem eventKey="2" className="Menu-Item"onClick={() => this.props.push('/blog')}>{this.props.username}'s Blog</MenuItem> : null}
+                        {this.props.username ?<MenuItem eventKey="3" className="Menu-Item"onClick={() => this.props.push('/gallery')}>{this.props.username}'s Gallery</MenuItem> : null}
+                        {this.props.username ?<MenuItem eventKey="4" className="Menu-Item">{this.props.username}'s Friends</MenuItem> : null}
+                        {this.props.username ?<MenuItem eventKey="5" className="Menu-Item">Find Friends</MenuItem> : null}
+                        {this.props.username ?<MenuItem divider/> : null}
+                        
+                       <MenuItem eventKey="6" className="Menu-Item">Browse Blogs</MenuItem>
+                        <MenuItem eventKey="7" className="Menu-Item">Browse Galleries</MenuItem>
                     </Dropdown.Menu>
                 </Dropdown>
             </li>

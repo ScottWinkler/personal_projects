@@ -103,7 +103,7 @@ import {Modal,Button,Glyphicon} from 'react-bootstrap';
                 label="Old Password"
                 placeholder="Old Password"
                 onChange={this.handleChange}
-                validationState={this.props.error&&this.props.error==="INVALID_PASSWORD" ? 'error' : null }
+                validationState={this.props.error&&this.props.error==="PASSWORD_INCORRECT" ? 'error' : null }
                 value={this.state.password}
                 autoComplete="password"
             />

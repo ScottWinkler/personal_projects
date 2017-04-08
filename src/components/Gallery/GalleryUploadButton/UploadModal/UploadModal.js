@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import React, {Component} from 'react';
 import {Modal,Button,Glyphicon} from 'react-bootstrap';
 import './UploadModal.css';
+import Measure from 'react-measure';
+
 var cloudinary=require('cloudinary');
 
 cloudinary.config({ 
@@ -20,30 +22,29 @@ export default class UploadModal extends Component {
         this.handleImageUpload=this.handleImageUpload.bind(this);
         this.state = {
             uploadedFile: null,
-            publicID: this.props.src ? this.props.src : null
+            publicID: this.props.src ? this.props.src : null,
+            dimensions:{
+            width:-1,
+            height:-1
+        }
         };
     }
+
      onChange(e) {
         var file = e.target.files[0];
-        console.log(file);
         var self=this;
         var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = function (e) {
-            console.log(self);
             self.setState({ uploadedFile: reader.result });
-
         }
     }
 
      handleImageUpload() {
+        var self = this;
          if (this.state.uploadedFile) {
-             var self = this;
              cloudinary.uploader.upload(this.state.uploadedFile, function (result) {
                  console.log(result);
-                 if (self.props.src !== 'DEFAULT_CAT_PIC') {
-                     cloudinary.uploader.destroy(self.props.src, function (result) { console.log(result) }, { invalidate: true });
-                 }
                  self.props.update({ src: result.public_id, username: self.props.username });
              })
          }
@@ -52,17 +53,18 @@ export default class UploadModal extends Component {
 
 
     render() {
-
+ const { width, height } = this.state.dimensions
         return (
             <div>
-            <Modal show={this.props.show} onHide={()=>this.props.close()}>
+            <Modal show={this.props.show} onHide={()=>this.props.close()} bsSize="large" animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Preview</Modal.Title>
                 </Modal.Header>
-
+                <Measure onMeasure={(dimensions) => {this.setState({ dimensions })}}>
                 <Modal.Body>
-                  <img id="preview_image" src={this.state.uploadedFile} alt=""/>
+                  <img id="preview_image" src={this.state.uploadedFile} alt="" width={width}/>
                 </Modal.Body>
+                </Measure>
                 <Modal.Footer className="UploadModal-Footer">
                     <span className="UploadModal-Upload">
                         Upload Image

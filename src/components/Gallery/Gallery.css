@@ -1,0 +1,10 @@
+.Gallery{
+width:90%;
+margin:auto;
+}
+.GalleryList{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+  
+}

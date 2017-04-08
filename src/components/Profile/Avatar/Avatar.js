@@ -11,7 +11,7 @@ export default class Avatar extends Component{
     render(){
         return(
             <div className="Avatar">
-                 <UploadButton  update={this.props.update} src={this.props.src}/>
+                 <UploadButton  update={this.props.update} src={this.props.src} username={this.props.username}/>
                  <AvatarImage  src={this.props.src}/>
             </div>
 

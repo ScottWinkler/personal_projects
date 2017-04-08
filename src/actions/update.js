@@ -26,7 +26,6 @@ export function updateData(input,callback=()=>{}) {
                         dispatch(updateError(null));
                         dispatch(updateDataSuccess(response))
                         callback(); 
-                        
                 }
                 }
             },

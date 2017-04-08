@@ -27,7 +27,7 @@ else{
     $db -> query("INSERT INTO `Tunacake`.`users` (`id`, `username`, `password`, `sign_up_date`, `email`, `bio`, `account_permissions`) VALUES (NULL, $nameFromPost, $quoted_hash, CURRENT_TIMESTAMP, $emailFromPost, '', 'c')");
     $result = $db -> select("SELECT * FROM users WHERE email=".$emailFromPost);
     $row=$result[0];
-    require("send_email.php");
+    require("welcome_email.php");
     echo json_encode($row);
 }
 ?>

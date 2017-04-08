@@ -15,6 +15,6 @@ this.state={showModal:false}
 
                 <div className="UploadButton">
                     <Button className="UploadButton-Btn"   onClick={()=>{this.setState({showModal:true})}}><Glyphicon glyph="pencil"/></Button>
-                    <UploadModal src={this.props.src}  show={this.state.showModal} update={this.props.update} close={()=>{this.setState({showModal:false})}}/>
+                    <UploadModal src={this.props.src} username={this.props.username} show={this.state.showModal} update={this.props.update} close={()=>{this.setState({showModal:false})}}/>
                 </div>
         )}}

@@ -16,8 +16,8 @@ export function loginIsValidating(state=false,action){
     }
 }
 
-//export function activeUser(state=null,action){
-    export function activeUser(state= {username:"test",email: "test@gmail.com",src: "http://i.imgur.com/NaZAHQM.jpg",signupDate: "2017-03-30 23:22:53"},action){
+export function activeUser(state=null,action){
+//export function activeUser(state= {username:"Test User",email: "test@gmail.com",src: "",sign_up_date: "2017-03-30 23:22:53"},action){
     switch(action.type){
         case 'LOGIN_FETCH_DATA_SUCCESS':            
             return action.user;

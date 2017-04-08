@@ -1,0 +1,25 @@
+.Home-Main{
+     max-width: 1200px;
+     margin:auto;
+     padding:0px 20px 20px 20px;
+}
+
+.Home-Article{
+    background-color: white;
+    color:#555;
+    font-size:larger;
+     line-height:2em;
+    font-size:larger;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    font-family: 'Lato','Open Sans','Helvetica Neue','Arial','San-serif';
+    letter-spacing: 0.25px;
+}
+.Home{
+    width:100%;
+}
+.Home-Header{
+    margin-top:0px;
+    padding-top:1px;
+    color:#333;
+}

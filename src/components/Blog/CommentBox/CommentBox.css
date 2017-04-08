@@ -1,0 +1,23 @@
+.CommentBox-Children{
+    border-left: 1px dashed #333;
+    list-style-type: none;
+    margin:0px;
+    padding:0px 0px 0px 10px;
+}
+.CommentBox-Body{
+    padding:20px 0px;
+}
+.CommentBox{
+    padding-top:10px;
+}
+.CommentBox-Message{
+    margin:0px;
+    padding-right:20px;
+    color:#555;
+    line-height:2em;
+    font-size:larger;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    font-family: 'Lato','Open Sans','Helvetica Neue','Arial','San-serif';
+    letter-spacing: 0.25px;
+}

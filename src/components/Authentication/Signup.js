@@ -59,7 +59,7 @@ import {Link} from 'redux-little-router';
 
     validEmail(){
         if (this.props.error&&this.props.error==="EMAIL_EXISTS"){
-            return true;
+            return false;
         }
         var pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return pattern.test(this.state.email)&&this.state.email.length>0;

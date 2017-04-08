@@ -1,0 +1,10 @@
+.CommentAvatar{
+    width:64px;
+    height:64px;
+    border-radius:3px;
+} 
+@media screen and (max-width: 500px){
+    .CommentAvatar{
+        display:none;
+    }
+}
