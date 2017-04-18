@@ -1,7 +1,7 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Profile from '../components/Profile/Profile.js'
-import {updateData,updateError} from '../actions/update.js';
+import {profileError,profileData} from '../actions/profile.js';
 
 const createDateFromMySQL=function(mysql_string){
      let t = mysql_string.split(/[- :]/);
@@ -13,15 +13,15 @@ return{
       email: state.rootReducer.activeUser ? state.rootReducer.activeUser.email : null,
       src: state.rootReducer.activeUser ? state.rootReducer.activeUser.src : 'DEFAULT_CAT_PIC',
       signupDate: createDateFromMySQL(state.rootReducer.activeUser.sign_up_date),
-      error:state.rootReducer.update.updateError,
-      isValidating:state.rootReducer.update.updateIsValidating,
+      error:state.rootReducer.profile.profileError,
+      isValidating:state.rootReducer.profile.profileIsValidating,
     };
 };
 
 const mapDispatchToProps = (dispatch) =>{
     return{
-        update:bindActionCreators(updateData,dispatch),
-        sendError: bindActionCreators(updateError,dispatch),
+        update:bindActionCreators(profileData,dispatch),
+        sendError: bindActionCreators(profileError,dispatch),
     }
 };
 

@@ -19,6 +19,8 @@
 #preview_image{
     max-width:300px;
     max-height:300px;
+    object-fit: contain;
+    margin-bottom:10px;
 }
 .UploadModal-Hide{
     position: absolute;

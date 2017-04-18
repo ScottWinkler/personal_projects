@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './CommentForm.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import {FormControl,ButtonToolbar,Button} from 'react-bootstrap';
+import {FormControl,Button} from 'react-bootstrap';
 
  export default class CommentForm extends Component{
 constructor(props){

@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import React, {Component} from 'react';
 import './GalleryUploadButton.css';
-import {Button,Glyphicon} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import UploadModal from './UploadModal/UploadModal.js';
 export default class GalleryUploadButton extends Component {
 
@@ -15,7 +15,7 @@ export default class GalleryUploadButton extends Component {
         return (
             <div className="GalleryUploadButton">
                 <Button bsStyle="primary" className="GalleryUploadButton-Btn" onClick={()=>{this.setState({showModal:true})}}>Upload Image</Button>
-                <UploadModal src={this.props.src} username={this.props.username} show={this.state.showModal} update={this.props.update} close={() => { this.setState({ showModal: false }) }} />
+                <UploadModal show={this.state.showModal} upload={this.props.upload} id_active_user={this.props.id_active_user} close={() => { this.setState({ showModal: false }) }} />
             </div>
         )
     }

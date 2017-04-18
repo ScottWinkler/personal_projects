@@ -7,14 +7,13 @@ import GalleryUploadButton from './GalleryUploadButton/GalleryUploadButton.js';
 import {Grid,Col,Row} from 'react-bootstrap';
 export default class Gallery extends Component {
   render() {
-    const srcs=["home_1","B","C","D","A"];
-    const listItems=srcs.map((src,index)=><GalleryListItem src={src} key={index}/>)
+    const listItems=this.props.galleryData ? this.props.galleryData.map((data,index)=><GalleryListItem data={data} key={index} update={this.props.update} delete={this.props.delete} id_active_user={this.props.id_active_user}/>) : null;
     return (
       <div className="Gallery">
         <Grid>
           <Row>
-            <Col md={2} mdOffset={10}>
-              <GalleryUploadButton />
+            <Col md={2} mdOffset={10} className="Gallery-Col">
+              <GalleryUploadButton upload={this.props.upload} id_active_user={this.props.id_active_user}/>
             </Col>
           </Row>
           <Row>

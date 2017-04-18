@@ -8,7 +8,7 @@ export default class AvatarImage extends Component {
     render() {
         return (
                  <div>
-                     <Image cloudName="dxehb7f11" publicId={this.props.src} className="AvatarImage" alt="avatar picture"/>
+                     <Image cloudName="dxehb7f11" publicId={this.props.src} className="AvatarImage" alt="avatar picture" width="200" height="200" crop="thumb"/>
                 </div>
         )
     }

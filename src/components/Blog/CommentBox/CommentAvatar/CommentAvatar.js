@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {Image} from 'cloudinary-react';
 import './CommentAvatar.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
-import {Grid,Row,Col} from 'react-bootstrap';
+
  export default class CommentAvatar extends Component{
    render(){
        return(

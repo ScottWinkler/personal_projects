@@ -2,6 +2,14 @@
     text-align: right;
 }
 .GalleryUploadButton-Btn{
-width:175px;
+ width:125px;
 height:100px;
+margin-bottom:10px;
+}
+@media screen and (max-width: 500px){
+    .GalleryUploadButton-Btn{
+ width:300px;}
+    .GalleryUploadButton{
+        text-align: left;
+    }
 }

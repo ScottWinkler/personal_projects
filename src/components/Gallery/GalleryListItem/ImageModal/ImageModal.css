@@ -1,3 +1,18 @@
 .ImageContainer{
     text-align: center;
 }
+.ImageModal-Footer{
+   text-align: right;
+}
+.ImageModal-Btn{
+    margin-left:10px;
+}
+.ImageModal-Description{
+    margin:10px 10px 0px 10px;
+    font-size: larger;
+    text-align: left;
+}
+.ImageModal-Glyph{
+      padding-left:7px;
+    margin:0px;
+}

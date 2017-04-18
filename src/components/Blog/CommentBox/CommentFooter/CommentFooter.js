@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import {Glyphicon} from 'react-bootstrap';
 import CommentForm from './CommentForm/CommentForm.js';
-import classNames from 'classnames';
  export default class CommentFooter extends Component{
 constructor(props){
 super(props);

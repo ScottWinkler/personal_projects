@@ -18,9 +18,9 @@ export default class UploadModal extends Component {
         super(props);
         this.onChange = this.onChange.bind(this);
         this.handleImageUpload=this.handleImageUpload.bind(this);
+        this.close=this.close.bind(this);
         this.state = {
             uploadedFile: null,
-            publicID: this.props.src ? this.props.src : null
         };
     }
      onChange(e) {
@@ -35,19 +35,25 @@ export default class UploadModal extends Component {
 
         }
     }
-
+     close() {
+         this.setState({ uploadedFile: null });
+         this.props.close();
+     }
      handleImageUpload() {
          if (this.state.uploadedFile) {
              var self = this;
              cloudinary.uploader.upload(this.state.uploadedFile, function (result) {
-                 console.log(result);
+                console.log(result);
+                  self.props.update({ src: result.public_id, username: self.props.username });
                  if (self.props.src !== 'DEFAULT_CAT_PIC') {
-                     cloudinary.uploader.destroy(self.props.src, function (result) { console.log(result) }, { invalidate: true });
+                     cloudinary.uploader.destroy(self.props.src, function (result) {console.log(result);
+                     }, { invalidate: true });
                  }
-                 self.props.update({ src: result.public_id, username: self.props.username });
-             })
+                
+             }
+             )
          }
-         this.props.close();
+         this.close();
      }
 
 
@@ -55,7 +61,7 @@ export default class UploadModal extends Component {
 
         return (
             <div>
-            <Modal show={this.props.show} onHide={()=>this.props.close()}>
+            <Modal show={this.props.show} onHide={()=>this.close()}>
                 <Modal.Header closeButton>
                     <Modal.Title>Preview</Modal.Title>
                 </Modal.Header>

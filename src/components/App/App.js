@@ -6,7 +6,7 @@ import Login from '../../containers/Login.js';
 import Signup from '../../containers/Signup.js';
 import Profile from '../../containers/Profile.js';
 import Home from '../Home/Home.js';
-import Gallery from '../Gallery/Gallery.js';
+import Gallery from '../../containers/Gallery.js';
 import Blog from '../../containers/Blog.js';
 export default class App extends Component {
   render() {

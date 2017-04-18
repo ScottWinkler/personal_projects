@@ -12,8 +12,8 @@ export default class Nav extends Component{
             <div className="Nav">
                 <ul className="Nav-ul">
                     <HomeButton push={this.props.push}/>
-                    <Menu push={this.props.push} username={this.props.username}/>
-                    <Welcome push={this.props.push} isAuthenticated={this.props.isAuthenticated} username={this.props.username} logout={this.props.logout}/>
+                    <Menu push={this.props.push} links={{toGallery: this.props.toGallery}} activeUser={this.props.activeUser}/>
+                    <Welcome push={this.props.push} isAuthenticated={this.props.isAuthenticated} username={this.props.activeUser? this.props.activeUser.username : null} logout={this.props.logout}/>
                 </ul>
             </div>
         )

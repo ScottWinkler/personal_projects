@@ -1,5 +1,4 @@
 import {postURL} from '../utilities/xmlhttp.js';
-import {push} from 'redux-little-router';
 export function blogIsLoading(bool){
     return{
         type:"BLOG_IS_LOADING",
@@ -9,18 +8,18 @@ export function blogIsLoading(bool){
 export function blogFetchData(input) {
     return (dispatch) => {
         dispatch(blogIsLoading(true));
-        postURL("/php/get_comments.php", input)
+        postURL("/php/blog_get_comments.php", input)
             .then(
             //success
             function (res) {
                 console.log(res);
                 var commentData = JSON.parse(res);
-                postURL("/php/get_likes.php", input).then(
+                postURL("/php/blog_get_likes.php", input).then(
                     //success
                     function (res) {
                         console.log(res);
                         var likesData = JSON.parse(res);
-                        postURL("/php/get_bloggers.php", input).then(
+                        postURL("/php/blog_get_bloggers.php", input).then(
                             //success
                             function (res) {
                                 console.log(res);
@@ -66,7 +65,7 @@ export function blogError(error){
 
 export function blogPost(input){
      return (dispatch) => {
-        postURL("/php/post_comment.php", input)
+        postURL("/php/blog_post_comment.php", input)
             .then(
             //success
             function (res) {
@@ -81,7 +80,7 @@ export function blogPost(input){
 
 export function blogLike(input){
     return (dispatch) => {
-        postURL("/php/like_comment.php", input)
+        postURL("/php/blog_like_comment.php", input)
             .then(
             //success
             function (res) {
